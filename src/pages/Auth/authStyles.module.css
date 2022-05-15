@@ -1,0 +1,50 @@
+.container {
+  width: 80%;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 80%;
+  height: 50vh;
+  margin: auto;
+  border: 1px black solid;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-input {
+  width: 242px;
+  border-radius: 5px;
+  height: 30px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  width: 250px;
+}
+
+.btn {
+  width: 250px;
+  height: 50px;
+  background-color: steelblue;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.btn:disabled {
+  background-color: lightsteelblue;
+  cursor: not-allowed;
+}

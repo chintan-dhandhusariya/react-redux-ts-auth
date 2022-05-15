@@ -5,12 +5,14 @@ export interface AuthState {
   isUserLoggedIn: boolean;
   user: any;
   error: any;
+	loading: boolean;
 }
 
 const initialState: AuthState = {
 	isUserLoggedIn: false,
 	user: null,
-  error: null
+  error: null,
+	loading: false,
 };
 
 export const loginAsync = createAsyncThunk(
@@ -40,8 +42,13 @@ export const authSlice = createSlice({
 		builder.addCase(loginAsync.fulfilled, (state, action) => {
 			state.isUserLoggedIn = true;
 			state.user = action.payload;
+			state.loading = false;
+		});
+		builder.addCase(loginAsync.pending, (state, action) => {
+			state.loading = true;
 		});
 		builder.addCase(loginAsync.rejected, (state, action) => {
+			state.loading = false;
 			state.error = action.payload;
 		});
 	},

@@ -1,7 +1,12 @@
 import { ReactElement } from 'react';
+import { useAppSelector } from '../../app/hooks';
+import "./dashboardStyles.module.css";
 
 const Dashboard = (): ReactElement => {
-  return <h2>Dashboard</h2>;
+  const { user } = useAppSelector(state => state.auth);
+  return (
+    <h2>Welcome {user?.firstName}!</h2>
+  );
 };
 
 export default Dashboard;

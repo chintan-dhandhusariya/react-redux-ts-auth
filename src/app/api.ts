@@ -28,7 +28,7 @@ function login(reqBody: ILoginRequest): Promise<ILoginResponse> {
 		} else {
 			setTimeout(
 				() => reject({ status: 401, data: { message: "Incorrect Password" } }),
-				500
+				1000
 			);
 		}
 	});

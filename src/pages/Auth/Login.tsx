@@ -1,20 +1,30 @@
-import React from 'react';
-import { useAppDispatch } from '../../app/hooks';
+import { ReactElement, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { loginAsync } from './authSlice';
-import "./authStyles.css";
+import styles from "./authStyles.module.css";
 
-const Login = (): React.ReactElement => {
-
+const Login = (): ReactElement => {
+  const [password, setPassword] = useState("");
   const dispatch = useAppDispatch();
+  const { error, loading } = useAppSelector(state => state.auth);
 
   const login = (e: any) => {
     e.preventDefault();
-    dispatch(loginAsync({ type: "auth/login", password: "alohomora" }));
+    dispatch(loginAsync({ type: "auth/login", password }));
   };
 
   return (
-    <div className="container">
-      <button className="btn" onClick={login}>Log in</button>
+    <div className={styles.container}>
+      <form onSubmit={login}>
+        <input
+          type="password"
+          className={styles["text-input"]}
+          placeholder="Enter password here"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)} />
+        {<div className={styles.error}>{error?.message}</div>}
+        <button className={styles.btn} disabled={loading}>Log in</button>
+      </form>
     </div>
   );
 };
