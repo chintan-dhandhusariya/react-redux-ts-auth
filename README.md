@@ -1,6 +1,8 @@
 ## Dev Setup
 
-To run the app, clone the repo on your local and install all dependencies with `yarn`.
+- Install Node (v 16.x) and Yarn.
+- Clone the repo on your local and install all dependencies with `yarn`.
+- To run the app, run the command `yarn start`.
 
 ## Notes
 
