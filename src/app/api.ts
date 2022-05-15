@@ -24,7 +24,7 @@ interface ILoginRequest {
 function login(reqBody: ILoginRequest): Promise<ILoginResponse> {
 	return new Promise<ILoginResponse>((resolve, reject) => {
 		if (reqBody.password === PASSWORD) {
-			setTimeout(() => resolve({ status: 200, data: CHINTAN }), 500);
+			setTimeout(() => resolve({ status: 200, data: CHINTAN }), 1000);
 		} else {
 			setTimeout(
 				() => reject({ status: 401, data: { message: "Incorrect Password" } }),
